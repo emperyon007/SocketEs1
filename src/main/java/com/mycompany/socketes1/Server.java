@@ -7,15 +7,16 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Server {
-	ServerSocket serverSocket; 
-	Socket socket; 
-	Countdown cd = new Countdown(25);
-	
-	int port; 
-	
-	public Server(int port) {
-		this.port = port; 
-	}
+    ServerSocket serverSocket; 
+    Socket socket; 
+    Countdown cd = new Countdown(25);
+    Countdown ttg = new Countdown(25);
+
+    int port; 
+
+    public Server(int port) {
+        this.port = port; 
+    }
 	
     public void connection() {
             try {
@@ -24,11 +25,12 @@ public class Server {
                     serverSocket.setSoTimeout(25000);
                     cd.start();
                     socket = serverSocket.accept();
-                    cd.stopThread(); 
+                    cd.stopThread();
                     System.out.println("Client connected");
 
             } catch (IOException e) {
                     System.out.println("Client not connected, shutting down...");
+                    cd.stopThread();
             }
 
     }

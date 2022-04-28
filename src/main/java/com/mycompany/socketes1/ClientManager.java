@@ -12,6 +12,10 @@ public class ClientManager {
         try {
                 cl = new Client(InetAddress.getLocalHost(), 2000);
                 cl.connection();
+                while(true){
+                    cl.write();
+                    cl.read();
+                }
         } catch (UnknownHostException e) {
                 e.printStackTrace();
         } 		

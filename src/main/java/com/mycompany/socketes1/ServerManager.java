@@ -7,6 +7,10 @@ public class ServerManager {
 		  Server se = new Server(2000); 
 			
 		  se.connection();
-				
+                  while(true){
+                    se.read();
+                    se.write();
+                  }
+		  
 	  }
 }

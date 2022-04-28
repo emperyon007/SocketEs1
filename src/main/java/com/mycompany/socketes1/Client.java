@@ -19,8 +19,6 @@ public class Client {
             this.port = port; 
     }
 
-
-
     public void connection() {
             try {
                     socket = new Socket(ip, port);
